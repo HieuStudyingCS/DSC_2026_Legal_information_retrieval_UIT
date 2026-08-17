@@ -1,26 +1,32 @@
-# Bỏ qua các file dữ liệu lớn (Không đẩy lên GitHub)
-*.zip
-*.rar
-*.csv
-*.xlsx
-*.docx
-*.pdf
+data/raw/
+data/processed/
+*.jsonl
 
-# Bỏ qua các thư mục dữ liệu giải nén và dữ liệu đã xử lý
-/corpus/
-/data/
-selected-contexts/
-processed_data/
+!data/raw/.gitkeep
 
-# Bỏ qua các file cấu hình tạm hoặc file sinh ra trong quá trình chạy
+indices/
+models/
+*.faiss
+*.pkl
+*.bin
+*.safetensors
+*.pth
+*.pt
+*.h5
+
+pipeline_errors.log
+*.log
+submission.json
+submission.zip
+output/
+scores.json
+
+.venv/
+venv/
+ENV/
 __pycache__/
 *.pyc
-.ipynb_checkpoints/
-.env
-
-# (Tuỳ chọn) Bạn có thể bỏ qua file json nếu không muốn đẩy data lên
-# Nhưng ở đây tạm thời bỏ qua file zip lớn
-selected-contexts.zip
-train.json
-warmup.json
-public-official.json
+.DS_Store
+__MACOSX/
+.vscode/
+.idea/

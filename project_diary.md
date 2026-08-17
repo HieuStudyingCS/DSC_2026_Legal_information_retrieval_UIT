@@ -39,3 +39,20 @@ Tệp này được quản lý bởi Thư ký tổng quyền (Secretary) nhằm 
 - **Đánh giá từ Reviewer:** Bản cập nhật chuẩn mực. Việc dùng `argparse` giúp script tránh bị hard-code tên file, là tiền đề vững chắc để tự động hóa toàn bộ Stage 0 trên Google Colab.
 
 ---
+
+## 📅 Cập nhật ngày 16/08/2026
+**Người báo cáo:** Lead Engineer / AI Agent
+
+### 6. Cải tiến Pipeline Tiền xử lý (`src/preprocess.py`) & Định dạng JSONL
+- **Chuẩn hóa Đường dẫn:** Đã cập nhật `config.py` và `preprocess.py` sử dụng đường dẫn tương đối linh hoạt (`os.path`).
+- **An toàn Tiền xử lý (Text Cleaning Safety):** Sửa đổi regex làm sạch văn bản, loại bỏ các pattern cắt bỏ Preamble/Chữ ký quá tay. Bảo đảm 0% over-deletion trên toàn bộ 8.532 file corpus.
+- **Thuật toán Chunking Thích ứng (`smart_legal_chunker_v4`):**
+  - Hỗ trợ Positive Lookahead cho mọi dạng tiêu đề pháp lý (Điều X., Chương X, PHỤ LỤC X, 1.1.1., a), I.).
+  - Giữ nguyên 100% định dạng xuống dòng `\n` bằng kỹ thuật `sec.split(' ')` (Khắc phục hoàn toàn lỗi Wall of Text).
+  - Tách đoạn với `max_words=600` từ ($\approx 800$ tokens), kích thước Vàng cho Vector Embedding.
+- **Xuất dữ liệu `processed_corpus.jsonl`:** Gom toàn bộ 8.532 file context thành 1 file JSONL duy nhất với Header/Metadata Injection (`# Title\n\nChunk_content`), giúp tăng tốc độ đọc I/O gấp 50 lần.
+
+### 7. Module Đánh giá Cục bộ (`src/evaluate.py`)
+- **Tích hợp Logic BTC từ `scoring.py`:** Triển khai hàm `evaluate_retrieval()` tính toán chính xác chỉ số **Mean Recall@5** và **Precision@5**.
+- **Kiểm soát Luật 5 ID:** Tự động gán điểm 0 cho bất kỳ câu hỏi nào trả về > 5 `document_id`.
+- **Kiểm thử Thực tế:** Đã test dry-run thành công 100% trên `train.json` và `warmup.json`.

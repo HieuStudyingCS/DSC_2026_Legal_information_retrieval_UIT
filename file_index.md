@@ -33,5 +33,8 @@
 - **`read_docx.ps1`** (`D:\Project Vibe Coding\DSC_2026\read_docx.ps1`): Script PowerShell nháp tạo trong quá trình hệ thống cố gắng đọc file docx (có thể xóa).
 
 ## 6. Mã nguồn (Source Code)
-- **`src/`** (`D:\Project Vibe Coding\DSC_2026\src\`): Thư mục chính chứa mã nguồn Python của dự án. Tất cả các file xử lý dữ liệu, huấn luyện mô hình, và đánh giá sẽ được lưu tại đây để đồng bộ lên GitHub.
-- **`src/preprocess.py`** (`D:\Project Vibe Coding\DSC_2026\src\preprocess.py`): Script tiền xử lý dữ liệu, tích hợp CLI (argparse) hỗ trợ cắt đoạn (chunking) và làm sạch văn bản, có chế độ Dry-run để test nhanh.
+- **`src/`** (`DSC_2026_Legal_information_retrieval_UIT/src/`): Thư mục chính chứa mã nguồn Python của dự án. Tất cả các file xử lý dữ liệu, huấn luyện mô hình, và đánh giá sẽ được lưu tại đây để đồng bộ lên GitHub.
+- **`src/preprocess.py`** (`DSC_2026_Legal_information_retrieval_UIT/src/preprocess.py`): Script tiền xử lý dữ liệu, tích hợp CLI hỗ trợ làm sạch văn bản, băm đoạn thích ứng `smart_legal_chunker_v4` và xuất ra file JSONL.
+- **`src/evaluate.py`** (`DSC_2026_Legal_information_retrieval_UIT/src/evaluate.py`): Script đánh giá cục bộ offline, tính chỉ số Recall@5 và Precision@5 chuẩn theo công thức của BTC (`scoring.py`), có kiểm soát luật phạt 5 ID.
+- **`processed_data/processed_corpus.jsonl`**: File dữ liệu corpus tổng hợp sau khi làm sạch và chunking, sẵn sàng nạp cho BM25 và Vector Database.
+

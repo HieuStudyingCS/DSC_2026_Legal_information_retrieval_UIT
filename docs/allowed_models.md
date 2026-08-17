@@ -62,5 +62,3 @@ Dưới đây là danh sách các mô hình AI/RAG/Embedding mà Ban tổ chức
 | vinai/phobert-base | https://huggingface.co/vinai/phobert-base |
 | vinai/PhoGPT-4B-Chat | https://huggingface.co/vinai/PhoGPT-4B-Chat |
 | VnCoreNLP | https://github.com/vncorenlp/VnCoreNLP |
-
-*(Lưu ý: Các dòng trùng lặp trong hình ảnh gốc đã được lọc bỏ để danh sách gọn gàng hơn).*
