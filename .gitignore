@@ -1,6 +1,4 @@
-# =========================================================================
-# 1. DU LIEU THO & DA XU LY (DATASETS & DOCUMENTS)
-# =========================================================================
+# 1. DU LIEU THO & DA XU LY
 data/
 corpus/
 selected-contexts/
@@ -17,9 +15,7 @@ processed_data/
 *.pdf
 *.jsonl
 
-# =========================================================================
-# 2. CHI MUC, DATABASE & MO HINH NANG (INDICES, DATABASES & LARGE MODELS)
-# =========================================================================
+# 2. CHI MUC, DATABASE & MO HINH NANG
 indices/
 models/
 *.pkl
@@ -34,18 +30,14 @@ models/
 *.safetensors
 *.index
 
-# =========================================================================
 # 3. KET QUA DU DOAN & SUBMISSION ARTIFACTS
-# =========================================================================
 submission.json
 submission.zip
 scores.json
 predictions/
 results/
 
-# =========================================================================
-# 4. NHAT KY & FILE HE THONG (LOGS & SYSTEM CACHE)
-# =========================================================================
+# 4. NHAT KY & FILE HE THONG
 logs/
 *.log
 pipeline_errors.log
@@ -58,9 +50,7 @@ __MACOSX/
 Thumbs.db
 *.ps1
 
-# =========================================================================
-# 5. MOI TRUONG AO & IDE CONFIG (VIRTUAL ENV & IDE SETTINGS)
-# =========================================================================
+# 5. MOI TRUONG AO & IDE CONFIG 
 .venv/
 venv/
 env/
